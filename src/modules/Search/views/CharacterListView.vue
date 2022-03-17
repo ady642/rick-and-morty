@@ -13,6 +13,7 @@
         v-for="character in characters().collection"
         :key="character.id"
         :character="character"
+        @click="goToCharacterDetailsView(character.id)"
     />
   </div>
   <rm-pagination
@@ -26,14 +27,15 @@
 <script lang="ts" setup>
 import CharacterCard from '@/modules/Search/components/CharacterCard/CharacterCard.vue'
 import useSearchStore from "@/modules/Search/store/helpers";
-import {useStore} from "vuex";
 import {onMounted} from "vue";
 import CharacterFilters from "@/modules/Search/components/CharacterFilters/CharacterFilters.vue";
 import CharactersFilters from "@/modules/Search/models/Query/CharactersFilters";
 import RmPagination from "@/Common/components/Paginations/RmPagination.vue";
+import useSearchNavigator from "@/modules/Search/navigator/useSearchNavigator";
 
-const store = useStore()
-const { fetchCharacters, characters, characterTotalCount, setFilters, setCurrentPage, paginator } = useSearchStore(store)
+const { fetchCharacters, characters, characterTotalCount, setFilters, setCurrentPage, paginator } = useSearchStore()
+
+const { goToCharacterDetailsView } = useSearchNavigator()
 
 const handleFiltersChange = async (filters: CharactersFilters) => {
   await setCurrentPage(1)
