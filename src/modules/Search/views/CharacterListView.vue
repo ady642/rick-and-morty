@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import CharacterCard from '@/modules/Search/components/CharacterCard.vue'
+import CharacterCard from '@/modules/Search/components/CharacterCard/CharacterCard.vue'
 import useSearchStore from "@/modules/Search/store/helpers";
 import {useStore} from "vuex";
 import {onMounted} from "vue";
@@ -27,5 +27,7 @@ onMounted(async () => {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
+  gap: 25px;
 }
 </style>

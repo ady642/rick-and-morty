@@ -26,9 +26,9 @@ export default class Character {
     type: string;
     gender: string;
     //origin: OriginOrLocation;
-    //location: OriginOrLocation;
-    image: string;
-    //episode: string[];
+    location: string;
+    avatar: string;
+    episodeCount: number;
     //url: string;
     //created: string;
 
@@ -39,6 +39,8 @@ export default class Character {
         this.species = charactersFromAPI.species
         this.type = charactersFromAPI.type
         this.gender = charactersFromAPI.gender
-        this.image = charactersFromAPI.image
+        this.avatar = charactersFromAPI.image
+        this.location = charactersFromAPI.location.name
+        this.episodeCount = charactersFromAPI.episode?.length
     }
 }
