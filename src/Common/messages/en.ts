@@ -5,6 +5,12 @@ const en = {
            alive: 'alive',
            dead: 'dead',
            unknown: 'unknown',
+       },
+       gender: {
+           female: 'female',
+           male: 'male',
+           genderLess: 'gender less',
+           unknown: 'unknown'
        }
    }
 }

@@ -1,13 +1,13 @@
 <template>
   <div class="character-card__content">
     <div class="character-card__content__first-and-second">
-      <span class="character-card__content__first-line">{{ name }}</span>
+      <span class="character-card__content__first-line ellipsify">{{ name }}</span>
       <div class="character-card__content__second-line">
-        <div class="character-card__content__second-line__status">
-          <earth-icon />
-          {{ statusTranslated }}
+        <div class="character-card__content__second-line__gender">
+          <gender-icon />
+          {{ genderTranslated }}
         </div>
-        <div class="character-card__content__second-line__location">
+        <div class="character-card__content__second-line__location ellipsify">
           <location-icon />
           {{ location }}
         </div>
@@ -24,12 +24,13 @@
 </template>
 
 <script lang="ts" setup>
-import EarthIcon from "@/Common/components/Icons/EarthIcon.vue";
+import GenderIcon from "@/Common/components/Icons/GenderIcon.vue";
 import LocationIcon from "@/Common/components/Icons/LocationIcon.vue";
 import RmDivider from "@/Common/components/Dividers/RmDivider.vue";
 import CameraIcon from "@/Common/components/Icons/CameraIcon.vue";
-import {computed} from "vue";
+import {computed, PropType} from "vue";
 import useTranslation from "@/Common/composables/useTranslation";
+import {GenderType} from "@/modules/Search/models/Inputs/Character";
 
 const props = defineProps({
   name: {
@@ -44,6 +45,10 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  gender: {
+    type: String as PropType<GenderType>,
+    default: 'unknown'
+  },
   episodeCount: {
     type: Number,
     default: 0,
@@ -52,7 +57,7 @@ const props = defineProps({
 
 const { t } = useTranslation()
 
-const statusTranslated = computed(() => t(`character.status.${props.status}`))
+const genderTranslated = computed(() => t(`character.gender.${props.gender}`))
 </script>
 
 <style lang="scss" scoped>
@@ -67,13 +72,15 @@ const statusTranslated = computed(() => t(`character.status.${props.status}`))
   &__first-line {
     font-weight: 600;
     font-size: $title;
+    max-width: 280px;
   }
   &__second-line {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    &__status {
+    &__gender {
+      text-transform: capitalize;
       color: $primary;
       font-size: $subtitle;
     }
@@ -82,10 +89,7 @@ const statusTranslated = computed(() => t(`character.status.${props.status}`))
       font-weight: bold;
       font-size: $captions;
       color: $grey;
-      white-space: nowrap;
-      overflow: hidden;
       max-width: 180px;
-      text-overflow: ellipsis;
     }
   }
   &__third-line {

@@ -9,6 +9,7 @@
         :status="character.status"
         :location="character.location"
         :episode-count="character.episodeCount"
+        :gender="character.gender"
     />
   </rm-card>
 </template>

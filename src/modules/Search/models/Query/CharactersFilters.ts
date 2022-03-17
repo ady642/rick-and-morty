@@ -1,10 +1,5 @@
-export const Status = {
-    alive: 'alive',
-    dead: 'dead',
-    unknown: 'unknown'
-}
+import {StatusType} from "@/modules/Search/models/Inputs/Character";
 
-export type StatusType = keyof typeof Status
 
 export type CharactersFiltersParams = {
     status: StatusType

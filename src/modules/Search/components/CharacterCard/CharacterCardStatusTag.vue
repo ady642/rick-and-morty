@@ -10,9 +10,9 @@
 <script lang="ts" setup>
 import RmTag from "@/Common/components/Tags/RmTag.vue";
 import {computed, PropType} from "vue";
-import {Status, StatusType} from "@/modules/Search/models/Query/CharactersFilters";
 import useTranslation from "@/Common/composables/useTranslation";
 import EarthIcon from "@/Common/components/Icons/EarthIcon.vue";
+import {Status, StatusType} from "@/modules/Search/models/Inputs/Character";
 
 const props = defineProps({
   status: {
