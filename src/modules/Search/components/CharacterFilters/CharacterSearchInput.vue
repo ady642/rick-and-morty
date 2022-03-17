@@ -20,7 +20,7 @@ const searchValue = ref('')
 defineProps({
   modelValue: {
     type: String,
-    required: true
+    default: ''
   }
 })
 
