@@ -17,7 +17,7 @@ import CharacterTagStatus from "@/modules/Search/components/CharacterFilters/Cha
 const props = defineProps({
   modelValue: {
     type: String as PropType<StatusType>,
-    default: 'unknown'
+    default: ''
   }
 })
 
@@ -37,10 +37,7 @@ const getType = (status: StatusType) => {
 }
 
 const handleTagClick = (status: StatusType) => {
-  if(status === props.modelValue) {
-    emit('update:modelValue', undefined)
-  }
-  emit('update:modelValue', status)
+  emit('update:modelValue', status == props.modelValue ? '' : status)
 }
 </script>
 

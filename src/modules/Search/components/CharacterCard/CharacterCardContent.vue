@@ -17,7 +17,7 @@
     <div class="character-card__content__third-line">
       <span class="character-card__content__third-line__episode">
         <camera-icon class="character-card__content__third-line__icon" />
-        {{ episodeCount }} {{ $t('character.episodes') }}
+        {{ $t('character.episodes', episodeCount) }}
       </span>
     </div>
   </div>
@@ -89,7 +89,7 @@ const genderTranslated = computed(() => t(`character.gender.${props.gender}`))
       font-weight: bold;
       font-size: $captions;
       color: $grey;
-      max-width: 180px;
+      max-width: 140px;
     }
   }
   &__third-line {

@@ -8,21 +8,29 @@ export type InfoFromAPI = {
 type PaginatorParams = Pick<InfoFromAPI, 'count'> & { pageNumber: number}
 
 export default class CharactersPaginator {
-    pageNumber: number
+    currentPage: number
     totalCharacters: number
+    itemsPerPage: 20
 
     constructor({ count, pageNumber  } = {} as PaginatorParams) {
-        this.pageNumber = pageNumber
+        this.currentPage = pageNumber
         this.totalCharacters = count
+        this.itemsPerPage = 20
     }
 
-    setTotalCharacters(totalCharacters: number) {
+    setTotalCharacters(totalCharacters: number): this {
         this.totalCharacters = totalCharacters
+        return this
+    }
+
+    setCurrentPage(page: number): this {
+        this.currentPage = page
+        return this
     }
 
     transformForAPI() {
         return {
-            page: this.pageNumber
+            page: this.currentPage
         }
     }
 }

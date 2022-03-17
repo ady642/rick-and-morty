@@ -21,24 +21,26 @@ const fetchCharacters = async ({
         const { data } = await CharactersServices.fetchCharacters(charactersQuery)
 
         commit(SET_CHARACTERS, Characters.loaded(data.results))
-        commit(SET_PAGINATOR, new CharactersPaginator({
-            count: data.info.count,
-            pageNumber: paginator.pageNumber
-        }))
+        commit(SET_PAGINATOR, paginator.setTotalCharacters(data.info.count))
     } catch (e) {
         commit(SET_CHARACTERS, Characters.errored())
     }
 }
 
 const setFilters = ({ commit }: Omit<ActionContext<SearchModuleState, RootState>,
-    'state' | 'dispatch' | 'getters' | 'rootState' | 'rootGetters'
->,
-    filters: CharactersFilters
+    'state' | 'dispatch' | 'getters' | 'rootState' | 'rootGetters'>, filters: CharactersFilters
 ) => {
     commit(SET_FILTERS, filters)
 }
 
+const setPaginator = ({ commit }: Omit<ActionContext<SearchModuleState, RootState>,
+    'state' | 'dispatch' | 'getters' | 'rootState' | 'rootGetters'>, paginator: CharactersPaginator
+) => {
+    commit(SET_PAGINATOR, paginator)
+}
+
 export default {
     fetchCharacters,
-    setFilters
+    setFilters,
+    setPaginator
 }

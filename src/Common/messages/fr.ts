@@ -1,6 +1,10 @@
 const fr = {
+    common: {
+        previous: 'précedent',
+        next: 'suivant',
+    },
     character: {
-        episodes: 'épisodes',
+        episodes: 'Aucun épisode | Un épisode | {count} épisodes',
         status: {
             alive: 'vivant',
             dead: 'décédé',
@@ -9,7 +13,7 @@ const fr = {
         gender: {
             female: 'femme',
             male: 'homme',
-            genderLess: 'sans genre',
+            genderless: 'gender less',
             unknown: 'inconnu'
         },
         count: 'aucun personnage | un personnage de Rick & Morty | Voici {count} personnages de Rick & Morty',

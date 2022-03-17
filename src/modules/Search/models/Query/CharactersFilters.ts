@@ -1,6 +1,5 @@
 import {StatusType} from "@/modules/Search/models/Inputs/Character";
 
-
 export type CharactersFiltersParams = {
     status: StatusType
     name: string
@@ -17,8 +16,8 @@ export default class CharactersFilters {
 
     transformForAPI() {
         return {
-            status: this.status,
-            name: this.name
+            status: this.status ? this.status: undefined,
+            name: this.name ? this.name : undefined
         }
     }
 }

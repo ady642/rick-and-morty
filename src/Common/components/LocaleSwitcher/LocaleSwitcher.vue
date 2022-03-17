@@ -1,7 +1,7 @@
 <template>
   <rm-dropdown
     v-model="$i18n.locale"
-    :list="getCountriesWithoutCurrentLocale()"
+    :list="getCountriesWithoutCurrentLocale($i18n.locale)"
   >
     <template #activator>
       <div class="locale-switcher__activator">

@@ -29,4 +29,8 @@ export default class Characters {
     static errored(): Characters {
         return new Characters({ state: 'errored', charactersFromAPI: [] })
     }
+
+    get isLoading(): boolean {
+        return this.state === 'loading'
+    }
 }

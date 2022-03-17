@@ -5,13 +5,22 @@
   <character-filters
     @filters-change="handleFiltersChange"
   />
-  <div class="character-list">
+  <span v-if="characters().isLoading">
+    Loading...
+  </span>
+  <div v-else class="character-list">
     <character-card
-      v-for="character in characters().collection"
-      :key="character.id"
-      :character="character"
+        v-for="character in characters().collection"
+        :key="character.id"
+        :character="character"
     />
   </div>
+  <rm-pagination
+    :current-page="paginator().currentPage"
+    :items-per-page="paginator().itemsPerPage"
+    :total-characters="paginator().totalCharacters"
+    @update:modelValue="handlePageChange"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -21,12 +30,19 @@ import {useStore} from "vuex";
 import {onMounted} from "vue";
 import CharacterFilters from "@/modules/Search/components/CharacterFilters/CharacterFilters.vue";
 import CharactersFilters from "@/modules/Search/models/Query/CharactersFilters";
+import RmPagination from "@/Common/components/Paginations/RmPagination.vue";
 
 const store = useStore()
-const { fetchCharacters, characters, characterTotalCount, setFilters } = useSearchStore(store)
+const { fetchCharacters, characters, characterTotalCount, setFilters, setCurrentPage, paginator } = useSearchStore(store)
 
 const handleFiltersChange = async (filters: CharactersFilters) => {
+  await setCurrentPage(1)
   await setFilters(filters)
+  await fetchCharacters()
+}
+
+const handlePageChange = async(page: number) => {
+  await setCurrentPage(page)
   await fetchCharacters()
 }
 
