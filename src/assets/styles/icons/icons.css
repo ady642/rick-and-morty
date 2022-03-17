@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('@/assets/styles/icons/fonts/icomoon.eot?r9xijb');
-  src:  url('@/assets/styles/icons/fonts/icomoon.eot?r9xijb#iefix') format('embedded-opentype'),
-    url('@/assets/styles/icons/fonts/icomoon.ttf?r9xijb') format('truetype'),
-    url('@/assets/styles/icons/fonts/icomoon.woff?r9xijb') format('woff'),
-    url('@/assets/styles/icons/fonts/icomoon.svg?r9xijb#icomoon') format('svg');
+  src:  url('@/assets/styles/icons/fonts/icomoon.eot?39x85a');
+  src:  url('@/assets/styles/icons/fonts/icomoon.eot?39x85a#iefix') format('embedded-opentype'),
+    url('@/assets/styles/icons/fonts/icomoon.ttf?39x85a') format('truetype'),
+    url('@/assets/styles/icons/fonts/icomoon.woff?39x85a') format('woff'),
+    url('@/assets/styles/icons/fonts/icomoon.svg?39x85a#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -28,7 +28,7 @@
 .icon-video-camera:before {
   content: "\e914";
 }
-.icon-home:before {
+.icon-home3:before {
   content: "\e902";
 }
 .icon-music:before {
@@ -45,4 +45,7 @@
 }
 .icon-earth:before {
   content: "\e9ca";
+}
+.icon-search:before {
+  content: "\e986";
 }

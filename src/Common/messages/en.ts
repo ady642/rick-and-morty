@@ -11,6 +11,12 @@ const en = {
            male: 'male',
            genderLess: 'gender less',
            unknown: 'unknown'
+       },
+       count: 'no character | one character | {count} characters in Rick & Morty',
+       filters: {
+           search: {
+               placeholder: 'Find a character'
+           }
        }
    }
 }

@@ -1,10 +1,12 @@
-import {SET_CHARACTERS} from "@/modules/Search/store/mutations";
+import {SET_CHARACTERS, SET_FILTERS, SET_PAGINATOR} from "@/modules/Search/store/mutations";
 import Characters from "@/modules/Search/models/Inputs/Characters";
 import CharactersServices from '@/modules/Search/services/index'
 import CharactersQuery from "@/modules/Search/models/Query/CharactersQuery";
 import {ActionContext} from "vuex";
 import {SearchModuleState} from "@/modules/Search/store/state";
 import {RootState} from "@/Common/store";
+import CharactersPaginator from "@/modules/Search/models/Query/CharactersPaginator";
+import CharactersFilters from "@/modules/Search/models/Query/CharactersFilters";
 
 const fetchCharacters = async ({
     commit, state: { paginator, filters }
@@ -19,11 +21,24 @@ const fetchCharacters = async ({
         const { data } = await CharactersServices.fetchCharacters(charactersQuery)
 
         commit(SET_CHARACTERS, Characters.loaded(data.results))
+        commit(SET_PAGINATOR, new CharactersPaginator({
+            count: data.info.count,
+            pageNumber: paginator.pageNumber
+        }))
     } catch (e) {
         commit(SET_CHARACTERS, Characters.errored())
     }
 }
 
+const setFilters = ({ commit }: Omit<ActionContext<SearchModuleState, RootState>,
+    'state' | 'dispatch' | 'getters' | 'rootState' | 'rootGetters'
+>,
+    filters: CharactersFilters
+) => {
+    commit(SET_FILTERS, filters)
+}
+
 export default {
-    fetchCharacters
+    fetchCharacters,
+    setFilters
 }

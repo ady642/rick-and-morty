@@ -11,6 +11,12 @@ const fr = {
             male: 'homme',
             genderLess: 'sans genre',
             unknown: 'inconnu'
+        },
+        count: 'aucun personnage | un personnage de Rick & Morty | Voici {count} personnages de Rick & Morty',
+        filters: {
+            search: {
+                placeholder: 'Rechercher un personnage'
+            }
         }
     }
 }
