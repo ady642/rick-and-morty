@@ -1,7 +1,7 @@
 import { createI18n, LocaleMessages, VueMessageType } from 'vue-i18n'
 
 function loadLocaleMessages(): LocaleMessages<VueMessageType> {
-  const locales = require.context('./Common/messages', true, /[A-Za-z0-9-_,\s]+\.ts$/i)
+  const locales = require.context('./Common/messages', true, /\b(?!\bindex\b)[a-zA-Z']+\.ts$/i)
   const messages: LocaleMessages<VueMessageType> = {}
   locales.keys().forEach(key => {
     const matched = key.match(/([A-Za-z0-9-_]+)\./i)

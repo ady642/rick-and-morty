@@ -21,6 +21,10 @@ defineProps({
 .rm-image {
   &__container {
     object-fit: cover;
+
+    img {
+      width: inherit;
+    }
   }
 }
 </style>

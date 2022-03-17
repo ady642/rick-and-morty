@@ -34,9 +34,9 @@ defineProps({
   background: white;
   box-shadow: 0 7px 14px rgb(0 0 0 / 4%);
   border: 1px solid $grey-light;
-  min-width: 300px;
-  width: 100%;
+  width: 300px;
   position: relative;
+  cursor: pointer;
 
   @media screen and (min-width: $sm) {
     width: auto

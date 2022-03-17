@@ -18,21 +18,5 @@ defineProps({
   border-top-left-radius: $radius;
   border-top-right-radius: $radius;
   height: 40%;
-
-  &__image {
-    img {
-
-    }
-  }
-}
-</style>
-
-<style lang="scss">
-.character-card__avatar {
-  &__image {
-    img {
-      width: 100%
-    }
-  }
 }
 </style>
