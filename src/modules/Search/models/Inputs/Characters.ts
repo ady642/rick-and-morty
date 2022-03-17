@@ -2,7 +2,6 @@ import Character, { CharacterFromAPI } from "@/modules/Search/models/Inputs/Char
 
 type State = 'loaded' | 'loading' | 'errored'
 
-
 type CharactersParams = {
     state: State
     charactersFromAPI: CharacterFromAPI[]

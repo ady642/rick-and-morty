@@ -1,6 +1,11 @@
 const fr = {
     character: {
-        episodes: 'épisodes'
+        episodes: 'épisodes',
+        status: {
+            alive: 'vivant',
+            dead: 'décédé',
+            unknown: 'inconnu',
+        }
     }
 }
 

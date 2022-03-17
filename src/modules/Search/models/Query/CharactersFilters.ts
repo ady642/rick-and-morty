@@ -1,12 +1,18 @@
-type Status = 'alive' | 'dead' | undefined
+export const Status = {
+    alive: 'alive',
+    dead: 'dead',
+    unknown: 'unknown'
+}
+
+export type StatusType = keyof typeof Status
 
 export type CharactersFiltersParams = {
-    status: Status
+    status: StatusType
     name: string
 }
 
 export default class CharactersFilters {
-    status: Status
+    status: StatusType
     name: string
 
     constructor({ status, name } = {} as CharactersFiltersParams) {

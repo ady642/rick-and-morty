@@ -1,7 +1,9 @@
+import {StatusType} from "@/modules/Search/models/Query/CharactersFilters";
+
 export interface CharacterFromAPI {
     id: number;
     name: string;
-    status: string;
+    status: 'Alive' | 'Dead' | 'unknown';
     species: string;
     type: string;
     gender: string;
@@ -21,7 +23,7 @@ export interface OriginOrLocation {
 export default class Character {
     id: number;
     name: string;
-    status: string;
+    status: StatusType;
     species: string;
     type: string;
     gender: string;
@@ -35,7 +37,7 @@ export default class Character {
     constructor(charactersFromAPI: CharacterFromAPI) {
         this.id = charactersFromAPI.id
         this.name = charactersFromAPI.name
-        this.status = charactersFromAPI.status
+        this.status = charactersFromAPI.status?.toLowerCase() as StatusType
         this.species = charactersFromAPI.species
         this.type = charactersFromAPI.type
         this.gender = charactersFromAPI.gender

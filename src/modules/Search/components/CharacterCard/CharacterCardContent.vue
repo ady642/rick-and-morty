@@ -5,7 +5,7 @@
       <div class="character-card__content__second-line">
         <div class="character-card__content__second-line__status">
           <earth-icon />
-          {{ status }}
+          {{ statusTranslated }}
         </div>
         <div class="character-card__content__second-line__location">
           <location-icon />
@@ -28,8 +28,10 @@ import EarthIcon from "@/Common/components/Icons/EarthIcon.vue";
 import LocationIcon from "@/Common/components/Icons/LocationIcon.vue";
 import RmDivider from "@/Common/components/Dividers/RmDivider.vue";
 import CameraIcon from "@/Common/components/Icons/CameraIcon.vue";
+import {computed} from "vue";
+import useTranslation from "@/Common/composables/useTranslation";
 
-defineProps({
+const props = defineProps({
   name: {
     type: String,
     required: true,
@@ -47,6 +49,10 @@ defineProps({
     default: 0,
   },
 })
+
+const { t } = useTranslation()
+
+const statusTranslated = computed(() => t(`character.status.${props.status}`))
 </script>
 
 <style lang="scss" scoped>

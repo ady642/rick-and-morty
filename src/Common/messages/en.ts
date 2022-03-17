@@ -1,6 +1,11 @@
 const en = {
    character: {
-       episodes: 'episodes'
+       episodes: 'episodes',
+       status: {
+           alive: 'alive',
+           dead: 'dead',
+           unknown: 'unknown',
+       }
    }
 }
 

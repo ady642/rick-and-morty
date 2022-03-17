@@ -1,5 +1,8 @@
 <template>
   <rm-card class="character-card">
+    <character-card-status-tag
+      :status="character.status"
+    />
     <character-card-avatar :src="character.avatar" />
     <character-card-content
         :name="character.name"
@@ -15,6 +18,7 @@ import Character from "@/modules/Search/models/Inputs/Character";
 import RmCard from '@/Common/components/Cards/RmCard.vue'
 import CharacterCardContent from "@/modules/Search/components/CharacterCard/CharacterCardContent.vue";
 import CharacterCardAvatar from "@/modules/Search/components/CharacterCard/CharacterCardAvatar.vue";
+import CharacterCardStatusTag from "@/modules/Search/components/CharacterCard/CharacterCardStatusTag.vue";
 
 defineProps({
   character: Character
@@ -31,6 +35,7 @@ defineProps({
   border: 1px solid $grey-light;
   min-width: 300px;
   width: 100%;
+  position: relative;
 
   @media screen and (min-width: $sm) {
     width: auto
