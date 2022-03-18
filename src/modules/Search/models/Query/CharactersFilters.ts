@@ -9,7 +9,7 @@ export default class CharactersFilters {
     status: StatusType
     name: string
 
-    constructor({ status, name } = {} as CharactersFiltersParams) {
+    constructor({ status, name} = {} as CharactersFiltersParams) {
         this.status = status
         this.name = name
     }

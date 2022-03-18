@@ -2,6 +2,7 @@ const fr = {
     common: {
         previous: 'précedent',
         next: 'suivant',
+        backToResults: 'Retour aux résultats'
     },
     character: {
         episodes: 'Aucun épisode | Un épisode | {count} épisodes',

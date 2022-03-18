@@ -2,6 +2,7 @@ const en = {
     common: {
       previous: 'previous',
       next: 'next',
+      backToResults: 'Back to results'
     },
    character: {
        episodes: 'No episode | One episode | {count} episodes',

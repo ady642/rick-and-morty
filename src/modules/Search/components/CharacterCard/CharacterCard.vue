@@ -1,6 +1,7 @@
 <template>
   <rm-card class="character-card">
     <character-card-status-tag
+        class="character-card__tag"
       :status="character.status"
     />
     <character-card-avatar :src="character.avatar" />
@@ -40,6 +41,16 @@ defineProps({
 
   @media screen and (min-width: $sm) {
     width: auto
+  }
+}
+</style>
+
+<style lang="scss">
+.character-card {
+  &__tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <h1 class="character-list__title">
-    {{ $t('character.count', characterTotalCount()) }}
-  </h1>
+  <main-title
+    :title="$t('character.count', characterTotalCount())"
+  />
   <character-filters
     @filters-change="handleFiltersChange"
   />
@@ -32,6 +32,7 @@ import CharacterFilters from "@/modules/Search/components/CharacterFilters/Chara
 import CharactersFilters from "@/modules/Search/models/Query/CharactersFilters";
 import RmPagination from "@/Common/components/Paginations/RmPagination.vue";
 import useSearchNavigator from "@/modules/Search/navigator/useSearchNavigator";
+import MainTitle from "@/Common/components/Titles/MainTitle.vue";
 
 const { fetchCharacters, characters, characterTotalCount, setFilters, setCurrentPage, paginator } = useSearchStore()
 

@@ -1,8 +1,8 @@
 import Character, { CharacterFromAPI } from "@/modules/Search/models/Inputs/Character";
 
-type State = 'loaded' | 'loading' | 'errored'
+export type State = 'loaded' | 'loading' | 'errored'
 
-type CharactersParams = {
+export type CharactersParams = {
     state: State
     charactersFromAPI: CharacterFromAPI[]
 }
@@ -30,7 +30,14 @@ export default class Characters {
         return new Characters({ state: 'errored', charactersFromAPI: [] })
     }
 
+    findByID(id: number): Character | undefined {
+        return this.collection.find(character => character.id === id)
+    }
+
     get isLoading(): boolean {
         return this.state === 'loading'
     }
-}
+
+    get areLoaded(): boolean {
+        return this.state === 'loaded'
+    }}

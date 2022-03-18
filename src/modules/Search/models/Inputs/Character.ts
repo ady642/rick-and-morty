@@ -35,22 +35,19 @@ export default class Character {
     species: string;
     type: string;
     gender: GenderType;
-    //origin: OriginOrLocation;
     location: string;
     avatar: string;
     episodeCount: number;
-    //url: string;
-    //created: string;
 
-    constructor(charactersFromAPI: CharacterFromAPI) {
-        this.id = charactersFromAPI.id
-        this.name = charactersFromAPI.name
-        this.status = charactersFromAPI.status?.toLowerCase() as StatusType
-        this.species = charactersFromAPI.species
-        this.type = charactersFromAPI.type
-        this.gender = charactersFromAPI.gender.toLowerCase() as GenderType
-        this.avatar = charactersFromAPI.image
-        this.location = charactersFromAPI.location.name
-        this.episodeCount = charactersFromAPI.episode?.length
+    constructor(characterFromAPI: CharacterFromAPI) {
+        this.id = characterFromAPI.id
+        this.name = characterFromAPI.name
+        this.status = characterFromAPI.status?.toLowerCase() as StatusType
+        this.species = characterFromAPI.species
+        this.type = characterFromAPI.type
+        this.gender = characterFromAPI.gender.toLowerCase() as GenderType
+        this.avatar = characterFromAPI.image
+        this.location = characterFromAPI.location.name
+        this.episodeCount = characterFromAPI.episode?.length
     }
 }

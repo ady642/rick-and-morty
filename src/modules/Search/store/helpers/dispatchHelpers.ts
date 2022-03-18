@@ -5,6 +5,7 @@ import CharactersFilters from "@/modules/Search/models/Query/CharactersFilters";
 
 export type dispatchHelpersType = {
     fetchCharacters: () => Promise<void>
+    fetchCharacter: (characterId: number) => Promise<void>
     setFilters: (filters: CharactersFilters) => Promise<void>
     setCurrentPage: (page: number) => Promise<void>
 }
@@ -12,6 +13,9 @@ export type dispatchHelpersType = {
 const dispatchHelpers = (store: Store<RootState>): dispatchHelpersType => ({
     fetchCharacters: async () => {
         await store.dispatch(searchModuleName('fetchCharacters'))
+    },
+    fetchCharacter: async (characterId: number) => {
+        await store.dispatch(searchModuleName('fetchCharacter'), characterId)
     },
     setFilters: async (filters: CharactersFilters) => {
         await store.dispatch(searchModuleName('setFilters'), filters)

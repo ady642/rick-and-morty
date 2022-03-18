@@ -1,4 +1,4 @@
-import {SET_CHARACTERS, SET_FILTERS, SET_PAGINATOR} from "@/modules/Search/store/mutations";
+import {SET_CHARACTER, SET_CHARACTERS, SET_FILTERS, SET_PAGINATOR} from "@/modules/Search/store/mutations";
 import Characters from "@/modules/Search/models/Inputs/Characters";
 import CharactersServices from '@/modules/Search/services/index'
 import CharactersQuery from "@/modules/Search/models/Query/CharactersQuery";
@@ -7,6 +7,7 @@ import {SearchModuleState} from "@/modules/Search/store/state";
 import {RootState} from "@/Common/store";
 import CharactersPaginator from "@/modules/Search/models/Query/CharactersPaginator";
 import CharactersFilters from "@/modules/Search/models/Query/CharactersFilters";
+import Character from "@/modules/Search/models/Inputs/Character";
 
 const fetchCharacters = async ({
     commit, state: { paginator, filters }
@@ -27,6 +28,21 @@ const fetchCharacters = async ({
     }
 }
 
+const fetchCharacter = async ({
+    commit
+}: Omit<ActionContext<SearchModuleState, RootState>, 'dispatch' | 'getters' | 'rootState' | 'rootGetters'>,
+characterId: number) => {
+    commit(SET_CHARACTERS, Characters.loading())
+
+    try {
+        const { data } = await CharactersServices.fetchCharacter(characterId)
+
+        commit(SET_CHARACTERS, Characters.loaded([data]))
+    } catch (e) {
+        commit(SET_CHARACTERS, Characters.errored())
+    }
+}
+
 const setFilters = ({ commit }: Omit<ActionContext<SearchModuleState, RootState>,
     'state' | 'dispatch' | 'getters' | 'rootState' | 'rootGetters'>, filters: CharactersFilters
 ) => {
@@ -41,6 +57,7 @@ const setPaginator = ({ commit }: Omit<ActionContext<SearchModuleState, RootStat
 
 export default {
     fetchCharacters,
+    fetchCharacter,
     setFilters,
     setPaginator
 }

@@ -44,10 +44,8 @@ const statusTranslated = computed(() => t(`character.status.${props.status}`))
   text-transform: capitalize;
   margin-left: 5px;
   &-tag {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: $captions
+    font-size: $captions;
+    width: min-content;
   }
 }
 </style>

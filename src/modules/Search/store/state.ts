@@ -9,7 +9,7 @@ export type SearchModuleState = {
 }
 
 const state: SearchModuleState = {
-    characters: Characters.loaded([]),
+    characters: Characters.loading(),
     filters: new CharactersFilters(),
     paginator: new CharactersPaginator()
 }

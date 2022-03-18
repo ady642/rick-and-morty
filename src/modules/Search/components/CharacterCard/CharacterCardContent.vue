@@ -3,36 +3,33 @@
     <div class="character-card__content__first-and-second">
       <span class="character-card__content__first-line ellipsify">{{ name }}</span>
       <div class="character-card__content__second-line">
-        <div class="character-card__content__second-line__gender">
-          <gender-icon />
-          {{ genderTranslated }}
-        </div>
-        <div class="character-card__content__second-line__location ellipsify">
-          <location-icon />
-          {{ location }}
-        </div>
+        <gender-label
+          :gender="gender"
+        />
+        <location-label
+          class="character-card__content__second-line__location ellipsify"
+          :location="location"
+        />
       </div>
     </div>
     <rm-divider />
     <div class="character-card__content__third-line">
-      <span class="character-card__content__third-line__episode">
-        <camera-icon class="character-card__content__third-line__icon" />
-        {{ $t('character.episodes', episodeCount) }}
-      </span>
+      <episode-label
+          :episode-count="episodeCount"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import GenderIcon from "@/Common/components/Icons/GenderIcon.vue";
-import LocationIcon from "@/Common/components/Icons/LocationIcon.vue";
 import RmDivider from "@/Common/components/Dividers/RmDivider.vue";
-import CameraIcon from "@/Common/components/Icons/CameraIcon.vue";
-import {computed, PropType} from "vue";
-import useTranslation from "@/Common/composables/useTranslation";
+import {PropType} from "vue";
 import {GenderType} from "@/modules/Search/models/Inputs/Character";
+import GenderLabel from "@/modules/Search/components/Labels/GenderLabel.vue";
+import LocationLabel from "@/modules/Search/components/Labels/LocationLabel.vue";
+import EpisodeLabel from "@/modules/Search/components/Labels/EpisodeLabel.vue";
 
-const props = defineProps({
+defineProps({
   name: {
     type: String,
     required: true,
@@ -54,10 +51,6 @@ const props = defineProps({
     default: 0,
   },
 })
-
-const { t } = useTranslation()
-
-const genderTranslated = computed(() => t(`character.gender.${props.gender}`))
 </script>
 
 <style lang="scss" scoped>
@@ -79,16 +72,7 @@ const genderTranslated = computed(() => t(`character.gender.${props.gender}`))
     justify-content: space-between;
     align-items: center;
 
-    &__gender {
-      text-transform: capitalize;
-      color: $primary;
-      font-size: $subtitle;
-    }
-
     &__location {
-      font-weight: bold;
-      font-size: $captions;
-      color: $grey;
       max-width: 140px;
     }
   }
@@ -96,26 +80,6 @@ const genderTranslated = computed(() => t(`character.gender.${props.gender}`))
     font-weight: 600;
     font-size: $subtitle;
     padding: 15px 10px;
-
-    &__icon {
-      padding: 6px;
-      border-radius: $sm-radius;
-      background: $grey-light;
-      color: black;
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    &__episode {
-      display: flex;
-      align-items: center;
-      column-gap: 10px;
-      font-weight: normal;
-      font-size: $subtitle;
-    }
   }
 }
 </style>
