@@ -17,7 +17,7 @@ defineProps({
 </script>
 
 <style lang="scss" scoped>
-.gender__label {
+.location-label {
   font-weight: bold;
   font-size: $captions;
   color: $grey;

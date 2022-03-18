@@ -2,7 +2,9 @@ const fr = {
     common: {
         previous: 'précedent',
         next: 'suivant',
-        backToResults: 'Retour aux résultats'
+        backToResults: 'Retour aux résultats',
+        madeWith: 'Fait avec',
+        byMe: 'par Adrien HM'
     },
     character: {
         episodes: 'Aucun épisode | Un épisode | {count} épisodes',

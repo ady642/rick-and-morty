@@ -2,11 +2,15 @@
     <rm-header />
     <main class="rm-container">
       <slot />
-      <footer>
-        Made with love By Adrien Haik Martos
-      </footer>
+      <rm-footer />
     </main>
 </template>
+
+<script lang="ts" setup>
+import RmHeader from "@/Common/components/Headers/RmHeader.vue";
+import RmFooter from "@/Common/components/Footers/RmFooter.vue";
+
+</script>
 
 <style scoped>
 .rm-container {
@@ -17,8 +21,3 @@
   row-gap: 40px;
 }
 </style>
-
-<script lang="ts" setup>
-import RmHeader from "@/Common/components/Headers/RmHeader.vue";
-
-</script>

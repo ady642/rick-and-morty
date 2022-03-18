@@ -2,7 +2,9 @@ const en = {
     common: {
       previous: 'previous',
       next: 'next',
-      backToResults: 'Back to results'
+      backToResults: 'Back to results',
+      madeWith: 'Made with',
+      byMe: 'by Adrien HM'
     },
    character: {
        episodes: 'No episode | One episode | {count} episodes',
