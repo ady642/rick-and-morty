@@ -1,5 +1,5 @@
 {
-  "name": "test-jellysmack",
+  "name": "rickandmorty",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -22,6 +22,7 @@
     "@intlify/vue-i18n-loader": "^3.0.0",
     "@types/axios": "^0.14.0",
     "@types/jest": "^27.0.1",
+    "@types/lodash": "^4.14.180",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",
@@ -38,6 +39,7 @@
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
     "jest": "^27.0.5",
+    "lodash": "^4.17.21",
     "sass": "^1.32.7",
     "sass-loader": "^12.0.0",
     "ts-jest": "^27.0.4",

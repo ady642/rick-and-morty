@@ -34,7 +34,7 @@ import GenderLabel from "@/modules/Search/components/Labels/GenderLabel.vue";
 import LocationLabel from "@/modules/Search/components/Labels/LocationLabel.vue";
 import EpisodeLabel from "@/modules/Search/components/Labels/EpisodeLabel.vue";
 
-const { characters, fetchCharacter, areCharactersLoading } = useSearchStore()
+const { characters, fetchCharacter } = useSearchStore()
 const { goToCharacterListView } = useSearchNavigator()
 
 const props = defineProps({
