@@ -60,18 +60,6 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 .character-details-view {
-  display: grid;
-  grid-template-areas: 'left right right right';
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-
-  &__left {
-    grid-area: left;
-  }
-  &__right {
-    grid-area: right;
-  }
-
   .column {
     display: flex;
     flex-direction: column;
