@@ -1,10 +1,12 @@
-import mutations, {SET_CHARACTERS} from '@/modules/Search/store/mutations'
+import mutations, {SET_CHARACTERS, SET_FILTERS, SET_PAGINATOR} from '@/modules/Search/store/mutations'
 import {SearchModuleState} from "@/modules/Search/store/state";
 import Characters from "@/modules/Search/models/Inputs/Characters";
 import characterAPIMock from "../../../../__mocks__/CharacterAPIMock";
+import CharactersPaginator from "@/modules/Search/models/Query/CharactersPaginator";
+import CharactersFilters from "@/modules/Search/models/Query/CharactersFilters";
 
-describe('Documents mutations', () => {
-    it('SET_DOCUMENTS', () => {
+describe('Characters mutations', () => {
+    it('SET_CHARACTERS', () => {
         const state = {
             characters: Characters.loading()
         } as SearchModuleState
@@ -27,5 +29,25 @@ describe('Documents mutations', () => {
             ],
             state: 'loaded'
         })
+    })
+
+    it('SET_FILTERS', () => {
+        const state = {
+            filters: new CharactersFilters()
+        } as SearchModuleState
+
+        mutations[SET_FILTERS](state, new CharactersFilters({ name: 'ricky', status: 'alive' }))
+
+        expect(state.filters).toEqual(new CharactersFilters({ name: 'ricky', status: 'alive' }))
+    })
+
+    it('SET_PAGINATOR', () => {
+        const state = {
+            paginator: new CharactersPaginator()
+        } as SearchModuleState
+
+        mutations[SET_PAGINATOR](state, new CharactersPaginator({ count: 33, pageNumber: 3 }))
+
+        expect(state.paginator).toEqual(new CharactersPaginator({ count: 33, pageNumber: 3 }))
     })
 })

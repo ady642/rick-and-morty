@@ -4,7 +4,6 @@ import CharactersPaginator from "@/modules/Search/models/Query/CharactersPaginat
 import CharactersFilters from "@/modules/Search/models/Query/CharactersFilters";
 
 export const SET_CHARACTERS = "SET_CHARACTERS";
-export const SET_CHARACTER = "SET_CHARACTER";
 export const SET_PAGINATOR = "SET_PAGINATOR";
 export const SET_FILTERS = "SET_FILTERS";
 
